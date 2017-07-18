@@ -1,0 +1,6 @@
+D:\Wezoom projects\FirstProdject\FirstProdject\bin\Debug\FirstProdject.exe.config
+D:\Wezoom projects\FirstProdject\FirstProdject\bin\Debug\FirstProdject.exe
+D:\Wezoom projects\FirstProdject\FirstProdject\bin\Debug\FirstProdject.pdb
+D:\Wezoom projects\FirstProdject\FirstProdject\obj\Debug\FirstProdject.csprojResolveAssemblyReference.cache
+D:\Wezoom projects\FirstProdject\FirstProdject\obj\Debug\FirstProdject.exe
+D:\Wezoom projects\FirstProdject\FirstProdject\obj\Debug\FirstProdject.pdb
