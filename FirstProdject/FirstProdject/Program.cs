@@ -59,6 +59,12 @@ namespace FirstProdject
                 case 2:
                     Selection_sort(leng);
                     break;
+                case 3:
+                    Insertion_sort(leng);
+                    break;
+                case 4:
+                    Marge_sort(leng);
+                    break;
                 default:
                     Console.WriteLine("???");
                     break;
@@ -134,5 +140,61 @@ namespace FirstProdject
             }
             Console.Read();
         }
+        static void Insertion_sort(int leng)
+        {
+            Console.WriteLine("Вы выбрали: Insertion sort ");
+            Console.WriteLine("Случайный массив из [" + leng + "] элементов:");
+            int[] mas = new int[leng];
+            Random rand = new Random();
+            for (int i = 0; i < mas.Length; i++)
+            {
+                mas[i] = rand.Next(0, 10);
+                Console.Write(mas[i] + " ");
+            }
+            Console.WriteLine("");
+            int j,x,c=0;
+            for (int i = 1; i < mas.Length; i++)
+            {
+                x = mas[i];
+                j = i;
+                while (j > 0)
+                {
+                    if (mas[j - 1] > x)
+                    {
+                        int temp = mas[j];
+                        mas[j] = mas[j - 1];
+                        mas[j - 1] = temp;
+                        c++;
+
+                    }
+                    j--;
+                   
+                }
+            }
+            Console.WriteLine("Отсортирован:");
+            for (int i = 0; i < mas.Length; i++)
+            {
+
+                Console.Write(mas[i] + " ");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Число итераций:"+c);
+            Console.Read();
+        }
+        static void Marge_sort(int leng)
+        {
+            Console.WriteLine("Вы выбрали: Marge sort ");
+            Console.WriteLine("Случайный массив из [" + leng + "] элементов:");
+            int[] mas = new int[leng];
+            Random rand = new Random();
+            for (int i = 0; i < mas.Length; i++)
+            {
+                mas[i] = rand.Next(0, 10);
+                Console.Write(mas[i] + " ");
+            }
+            Console.WriteLine("");
+
+        }
+
     }
 }
