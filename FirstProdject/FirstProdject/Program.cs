@@ -8,13 +8,16 @@ namespace FirstProdject
 {
     class Program
     {
+        static System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
+            Console.Title = "The First. MustangTheKill (R)";
 
 
             bool flag = true;
             int leng = 0;
+            int diap = 10;
             do
             {
                 Console.WriteLine("Укажите длину массива");
@@ -34,6 +37,17 @@ namespace FirstProdject
             }
             while (flag == false);
 
+            Console.WriteLine("Укажите максимальный диапазон");
+            try
+            {
+                diap= Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Ошибка при вводе числа");
+                Console.ReadLine();
+            }
+            Console.Clear();
 
             Console.WriteLine("Выберите метод сортировки массива:");
             Console.WriteLine("1. Bubble sort");
@@ -54,25 +68,26 @@ namespace FirstProdject
             switch (a)
             {
                 case 1:
-                    Bubble_sort(leng);
+                    Bubble_sort(leng,diap);
                     break;
                 case 2:
-                    Selection_sort(leng);
+                    Selection_sort(leng,diap);
                     break;
                 case 3:
-                    Insertion_sort(leng);
+                    Insertion_sort(leng,diap);
                     break;
                 case 4:
-                    Marge_sort(leng);
+                    Marge_sort(leng,diap);
                     break;
                 default:
                     Console.WriteLine("???");
                     break;
             }
-
+            Console.WriteLine("");
+            Console.WriteLine(((sw.Elapsed).ToString()) + " ms");
             Console.ReadLine();
         }
-        static void Bubble_sort(int leng)
+        static void Bubble_sort(int leng,int diap)
         {
             Console.WriteLine("Вы выбрали: Bubble sort ");
             Console.WriteLine("Случайный массив из [" + leng + "] элементов:");
@@ -80,11 +95,13 @@ namespace FirstProdject
             Random rand = new Random();
             for (int i = 0; i < mas.Length; i++)
             {
-                mas[i] = rand.Next(0, 10);
+                mas[i] = rand.Next(0, diap);
                 Console.Write(mas[i] + " ");
             }
             Console.WriteLine("");
             int temp;
+
+            sw.Start();
             for (int i = 0; i < mas.Length; i++)
             {
                 for (int j = 0; j < (mas.Length - i - 1); j++)
@@ -97,15 +114,17 @@ namespace FirstProdject
                     }
                 }
             }
+            sw.Stop();
+
             Console.WriteLine("Отсортирован:");
             for (int i = 0; i < mas.Length; i++)
             {
 
                 Console.Write(mas[i] + " ");
             }
-            Console.Read();
+
         }
-        static void Selection_sort(int leng)
+        static void Selection_sort(int leng, int diap)
         {
             Console.WriteLine("Вы выбрали: Selection sort ");
             Console.WriteLine("Случайный массив из [" + leng + "] элементов:");
@@ -113,10 +132,11 @@ namespace FirstProdject
             Random rand = new Random();
             for (int i = 0; i < mas.Length; i++)
             {
-                mas[i] = rand.Next(0, 10);
+                mas[i] = rand.Next(0, diap);
                 Console.Write(mas[i] + " ");
             }
             Console.WriteLine("");
+            sw.Start();
             for (int i = 0; i < mas.Length - 1; i++)
             {
                 int min = i;
@@ -132,15 +152,15 @@ namespace FirstProdject
                 mas[i] = mas[min];
                 mas[min] = temp;
             }
+            sw.Stop();
             Console.WriteLine("Отсортирован:");
             for (int i = 0; i < mas.Length; i++)
             {
 
                 Console.Write(mas[i] + " ");
             }
-            Console.Read();
         }
-        static void Insertion_sort(int leng)
+        static void Insertion_sort(int leng,int diap)
         {
             Console.WriteLine("Вы выбрали: Insertion sort ");
             Console.WriteLine("Случайный массив из [" + leng + "] элементов:");
@@ -148,10 +168,11 @@ namespace FirstProdject
             Random rand = new Random();
             for (int i = 0; i < mas.Length; i++)
             {
-                mas[i] = rand.Next(0, 10);
+                mas[i] = rand.Next(0,diap);
                 Console.Write(mas[i] + " ");
             }
             Console.WriteLine("");
+            sw.Start();
             int j,x,c=0;
             for (int i = 1; i < mas.Length; i++)
             {
@@ -171,6 +192,7 @@ namespace FirstProdject
                    
                 }
             }
+            sw.Stop();
             Console.WriteLine("Отсортирован:");
             for (int i = 0; i < mas.Length; i++)
             {
@@ -179,9 +201,8 @@ namespace FirstProdject
             }
             Console.WriteLine("");
             Console.WriteLine("Число итераций:"+c);
-            Console.Read();
         }
-        static void Marge_sort(int leng)
+        static void Marge_sort(int leng,int diap)
         {
             Console.WriteLine("Вы выбрали: Marge sort ");
             Console.WriteLine("Случайный массив из [" + leng + "] элементов:");
@@ -190,13 +211,13 @@ namespace FirstProdject
             Random rand = new Random();
             for (int i = 0; i < mas.Length; i++)
             {
-                mas[i] = rand.Next(0, 10);
+                mas[i] = rand.Next(0, diap);
                 Console.Write(mas[i] + " ");
             }
             Console.WriteLine("");
-
+            sw.Start();
             c=c+sorting(mas, 0, mas.LongLength-1);
-
+            sw.Stop();
             Console.WriteLine("Отсортирован:");
             for (int i = 0; i < mas.Length; i++)
             {
@@ -204,7 +225,6 @@ namespace FirstProdject
             }
             Console.WriteLine("");
             Console.WriteLine("Число итераций:" + c);
-            Console.Read();
         }
         static int sorting(int[] arr, long first, long last)
         {
