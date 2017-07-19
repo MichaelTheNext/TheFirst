@@ -9,3 +9,4 @@ D:\Wezoom projects\TheFirst\FirstProdject\FirstProdject\bin\Debug\FirstProdject.
 D:\Wezoom projects\TheFirst\FirstProdject\FirstProdject\bin\Debug\FirstProdject.pdb
 D:\Wezoom projects\TheFirst\FirstProdject\FirstProdject\obj\Debug\FirstProdject.exe
 D:\Wezoom projects\TheFirst\FirstProdject\FirstProdject\obj\Debug\FirstProdject.pdb
+D:\Wezoom projects\TheFirst\FirstProdject\FirstProdject\obj\Debug\FirstProdject.csprojResolveAssemblyReference.cache

@@ -186,6 +186,7 @@ namespace FirstProdject
             Console.WriteLine("Вы выбрали: Marge sort ");
             Console.WriteLine("Случайный массив из [" + leng + "] элементов:");
             int[] mas = new int[leng];
+            int c = 0;
             Random rand = new Random();
             for (int i = 0; i < mas.Length; i++)
             {
@@ -194,6 +195,38 @@ namespace FirstProdject
             }
             Console.WriteLine("");
 
+            c=c+sorting(mas, 0, mas.LongLength-1);
+
+            Console.WriteLine("Отсортирован:");
+            for (int i = 0; i < mas.Length; i++)
+            {
+                Console.Write(mas[i] + " ");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Число итераций:" + c);
+            Console.Read();
+        }
+        static int sorting(int[] arr, long first, long last)
+        {
+            int p = arr[(last - first) / 2 + first];
+            int temp, c=0;
+            long i = first, j = last;
+            while (i <= j)
+            {
+                while (arr[i] < p && i <= last) ++i;
+                while (arr[j] > p && j >= first) --j;
+                if (i <= j)
+                {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                    ++i; --j;
+                    c++;
+                }
+            }
+            if (j > first) sorting(arr, first, j);
+            if (i < last) sorting(arr, i, last);
+            return c;
         }
 
     }
